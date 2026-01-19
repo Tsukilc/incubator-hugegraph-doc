@@ -1,0 +1,407 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HugeGraph – HugeGraph-AI</title><link>/docs/quickstart/hugegraph-ai/</link><description>Recent content in HugeGraph-AI on HugeGraph</description><generator>Hugo -- gohugo.io</generator><atom:link href="/docs/quickstart/hugegraph-ai/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: HugeGraph-LLM</title><link>/docs/quickstart/hugegraph-ai/hugegraph-llm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/quickstart/hugegraph-ai/hugegraph-llm/</guid><description>
+&lt;blockquote>
+&lt;p>Please refer to the AI repository &lt;a href="https://github.com/apache/incubator-hugegraph-ai/tree/main/hugegraph-llm#readme">README&lt;/a> for the most up-to-date documentation, and the official website &lt;strong>regularly&lt;/strong> is updated and synchronized.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>Bridge the gap between Graph Databases and Large Language Models&lt;/strong>&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>AI summarizes the project documentation: &lt;a href="https://deepwiki.com/apache/incubator-hugegraph-ai">&lt;img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki">&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="-overview">🎯 Overview&lt;/h2>
+&lt;p>HugeGraph-LLM is a comprehensive toolkit that combines the power of graph databases with large language models.
+It enables seamless integration between HugeGraph and LLMs for building intelligent applications.&lt;/p>
+&lt;h3 id="key-features">Key Features&lt;/h3>
+&lt;ul>
+&lt;li>🏗️ &lt;strong>Knowledge Graph Construction&lt;/strong> - Build KGs automatically using LLMs + HugeGraph&lt;/li>
+&lt;li>🗣️ &lt;strong>Natural Language Querying&lt;/strong> - Operate graph databases using natural language (Gremlin/Cypher)&lt;/li>
+&lt;li>🔍 &lt;strong>Graph-Enhanced RAG&lt;/strong> - Leverage knowledge graphs to improve answer accuracy (GraphRAG &amp;amp; Graph Agent)&lt;/li>
+&lt;/ul>
+&lt;p>For detailed source code doc, visit our &lt;a href="https://deepwiki.com/apache/incubator-hugegraph-ai">DeepWiki&lt;/a> page. (Recommended)&lt;/p>
+&lt;h2 id="-prerequisites">📋 Prerequisites&lt;/h2>
+&lt;blockquote>
+&lt;p>[!IMPORTANT]&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Python&lt;/strong>: 3.10+ (not tested on 3.12)&lt;/li>
+&lt;li>&lt;strong>HugeGraph Server&lt;/strong>: 1.3+ (recommended: 1.5+)&lt;/li>
+&lt;li>&lt;strong>UV Package Manager&lt;/strong>: 0.7+&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h2 id="-quick-start">🚀 Quick Start&lt;/h2>
+&lt;p>Choose your preferred deployment method:&lt;/p>
+&lt;h3 id="option-1-docker-compose-recommended">Option 1: Docker Compose (Recommended)&lt;/h3>
+&lt;p>The fastest way to get started with both HugeGraph Server and RAG Service:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 1. Set up environment&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp docker/env.template docker/.env
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Edit docker/.env and set PROJECT_PATH to your actual project path&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 2. Deploy services&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker-compose -f docker-compose-network.yml up -d
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 3. Verify deployment&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker-compose -f docker-compose-network.yml ps
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 4. Access services&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># HugeGraph Server: http://localhost:8080&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># RAG Service: http://localhost:8001&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="option-2-individual-docker-containers">Option 2: Individual Docker Containers&lt;/h3>
+&lt;p>For more control over individual components:&lt;/p>
+&lt;h4 id="available-images">Available Images&lt;/h4>
+&lt;ul>
+&lt;li>&lt;strong>&lt;code>hugegraph/rag&lt;/code>&lt;/strong> - Development image with source code access&lt;/li>
+&lt;li>&lt;strong>&lt;code>hugegraph/rag-bin&lt;/code>&lt;/strong> - Production-optimized binary (compiled with Nuitka)&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 1. Create network&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker network create -d bridge hugegraph-net
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 2. Start HugeGraph Server&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -itd --name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>server -p 8080:8080 --network hugegraph-net hugegraph/hugegraph
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 3. Start RAG Service&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker pull hugegraph/rag:latest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -itd --name rag &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">&lt;/span> -v /path/to/your/hugegraph-llm/.env:/home/work/hugegraph-llm/.env &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#4e9a06">&lt;/span> -p 8001:8001 --network hugegraph-net hugegraph/rag
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 4. Monitor logs&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker logs -f rag
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="option-3-build-from-source">Option 3: Build from Source&lt;/h3>
+&lt;p>For development and customization:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 1. Start HugeGraph Server&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -itd --name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>server -p 8080:8080 hugegraph/hugegraph
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 2. Install UV package manager&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl -LsSf https://astral.sh/uv/install.sh &lt;span style="color:#000;font-weight:bold">|&lt;/span> sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 3. Clone and setup project&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/apache/incubator-hugegraph-ai.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> incubator-hugegraph-ai/hugegraph-llm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 4. Create virtual environment and install dependencies&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uv venv &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">source&lt;/span> .venv/bin/activate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uv pip install -e .
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 5. Launch RAG demo&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python -m hugegraph_llm.demo.rag_demo.app
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Access at: http://127.0.0.1:8001&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 6. (Optional) Custom host/port&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python -m hugegraph_llm.demo.rag_demo.app --host 127.0.0.1 --port &lt;span style="color:#0000cf;font-weight:bold">18001&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="additional-setup-optional">Additional Setup (Optional)&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Download NLTK stopwords for better text processing&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python ./hugegraph_llm/operators/common_op/nltk_helper.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Update configuration files&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python -m hugegraph_llm.config.generate --update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>[!TIP]
+Check our &lt;a href="https://github.com/apache/incubator-hugegraph-ai/blob/main/hugegraph-llm/quick_start.md">Quick Start Guide&lt;/a> for detailed usage examples and query logic explanations.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="-usage-examples">💡 Usage Examples&lt;/h2>
+&lt;h3 id="knowledge-graph-construction">Knowledge Graph Construction&lt;/h3>
+&lt;h4 id="interactive-web-interface">Interactive Web Interface&lt;/h4>
+&lt;p>Use the Gradio interface for visual knowledge graph building:&lt;/p>
+&lt;p>&lt;strong>Input Options:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Text&lt;/strong>: Direct text input for RAG index creation&lt;/li>
+&lt;li>&lt;strong>Files&lt;/strong>: Upload TXT or DOCX files (multiple selection supported)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Schema Configuration:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Custom Schema&lt;/strong>: JSON format following our &lt;a href="https://github.com/apache/incubator-hugegraph-ai/blob/aff3bbe25fa91c3414947a196131be812c20ef11/hugegraph-llm/src/hugegraph_llm/config/config_data.py#L125">template&lt;/a>&lt;/li>
+&lt;li>&lt;strong>HugeGraph Schema&lt;/strong>: Use existing graph instance schema (e.g., &amp;ldquo;hugegraph&amp;rdquo;)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://hugegraph.apache.org/docs/images/gradio-kg.png" alt="Knowledge Graph Builder">&lt;/p>
+&lt;h4 id="programmatic-construction">Programmatic Construction&lt;/h4>
+&lt;p>Build knowledge graphs with code using the &lt;code>KgBuilder&lt;/code> class:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">hugegraph_llm.models.llms.init_llm&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">LLMs&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">hugegraph_llm.operators.kg_construction_task&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">KgBuilder&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Initialize and chain operations&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">TEXT&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Your input text here...&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">builder&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">KgBuilder&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">LLMs&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">get_chat_llm&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">builder&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">import_schema&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">from_hugegraph&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;talent_graph&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">print_result&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">chunk_split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">TEXT&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">print_result&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">extract_info&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">extract_type&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;property_graph&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">print_result&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">commit_to_hugegraph&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">run&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Pipeline Workflow:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>graph LR
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> A[Import Schema] --&amp;gt; B[Chunk Split]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> B --&amp;gt; C[Extract Info]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> C --&amp;gt; D[Commit to HugeGraph]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> D --&amp;gt; E[Execute Pipeline]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> style A fill:#fff2cc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> style B fill:#d5e8d4
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> style C fill:#dae8fc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> style D fill:#f8cecc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> style E fill:#e1d5e7
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="graph-enhanced-rag">Graph-Enhanced RAG&lt;/h3>
+&lt;p>Leverage HugeGraph for retrieval-augmented generation:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">hugegraph_llm.operators.graph_rag_task&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">RAGPipeline&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Initialize RAG pipeline&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">graph_rag&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">RAGPipeline&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># Execute RAG workflow&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#000">graph_rag&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">extract_keywords&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">text&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Tell me about Al Pacino.&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">keywords_to_vid&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">query_graphdb&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">max_deep&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">max_graph_items&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">30&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">merge_dedup_rerank&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">synthesize_answer&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">vector_only_answer&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">False&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">graph_only_answer&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">True&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">run&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">verbose&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">True&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>RAG Pipeline Flow:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>graph TD
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> A[User Query] --&amp;gt; B[Extract Keywords]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> B --&amp;gt; C[Match Graph Nodes]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> C --&amp;gt; D[Retrieve Graph Context]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> D --&amp;gt; E[Rerank Results]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> E --&amp;gt; F[Generate Answer]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> style A fill:#e3f2fd
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> style B fill:#f3e5f5
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> style C fill:#e8f5e8
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> style D fill:#fff3e0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> style E fill:#fce4ec
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> style F fill:#e0f2f1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-configuration">🔧 Configuration&lt;/h2>
+&lt;p>After running the demo, configuration files are automatically generated:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Environment&lt;/strong>: &lt;code>hugegraph-llm/.env&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Prompts&lt;/strong>: &lt;code>hugegraph-llm/src/hugegraph_llm/resources/demo/config_prompt.yaml&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>[!NOTE]
+Configuration changes are automatically saved when using the web interface. For manual changes, simply refresh the page to load updates.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>LLM Provider Support&lt;/strong>: This project uses &lt;a href="https://docs.litellm.ai/docs/providers">LiteLLM&lt;/a> for multi-provider LLM support.&lt;/p>
+&lt;h2 id="-additional-resources">📚 Additional Resources&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Graph Visualization&lt;/strong>: Use &lt;a href="https://hub.docker.com/r/hugegraph/hubble">HugeGraph Hubble&lt;/a> for data analysis and schema management&lt;/li>
+&lt;li>&lt;strong>API Documentation&lt;/strong>: Explore our REST API endpoints for integration&lt;/li>
+&lt;li>&lt;strong>Community&lt;/strong>: Join our discussions and contribute to the project&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>&lt;strong>License&lt;/strong>: Apache License 2.0 | &lt;strong>Community&lt;/strong>: &lt;a href="https://hugegraph.apache.org/">Apache HugeGraph&lt;/a>&lt;/p></description></item><item><title>Docs: GraphRAG UI Details</title><link>/docs/quickstart/hugegraph-ai/quick_start/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/quickstart/hugegraph-ai/quick_start/</guid><description>
+&lt;blockquote>
+&lt;p>Follow up &lt;a href="../">main doc&lt;/a> to introduce the basic UI function &amp;amp; details, welcome to update and improve at any time, thanks&lt;/p>
+&lt;/blockquote>
+&lt;h1 id="1-core-logic-of-the-project">1. Core Logic of the Project&lt;/h1>
+&lt;h2 id="build-rag-index-responsibilities">Build RAG Index Responsibilities:&lt;/h2>
+&lt;ul>
+&lt;li>Split and vectorize text&lt;/li>
+&lt;li>Extract text into a graph (construct a knowledge graph) and vectorize the vertices&lt;/li>
+&lt;/ul>
+&lt;h2 id="graphrag--user-functions-responsibilities">(Graph)RAG &amp;amp; User Functions Responsibilities:&lt;/h2>
+&lt;ul>
+&lt;li>Retrieve relevant content from the constructed knowledge graph and vector database based on the query to supplement the prompt.&lt;/li>
+&lt;/ul>
+&lt;h1 id="2-processing-flow-build-rag-index">2. (Processing Flow) Build RAG Index&lt;/h1>
+&lt;p>Construct a knowledge graph, chunk vector, and graph vid vector from the text.&lt;/p>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/f3366d46-2e31-4638-94c4-7214951ef77a" alt="image">&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>graph TD;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> A[Raw Text] --&amp;gt; B[Text Segmentation]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> B --&amp;gt; C[Vectorization]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> C --&amp;gt; D[Store in Vector Database]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> A --&amp;gt; F[Text Segmentation]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> F --&amp;gt; G[LLM extracts graph based on schema \nand segmented text]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> G --&amp;gt; H[Store graph in Graph Database, \nautomatically vectorize vertices \nand store in Vector Database]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> I[Retrieve vertices from Graph Database] --&amp;gt; J[Vectorize vertices and store in Vector Database \nNote: Incremental update]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="four-input-fields">Four Input Fields:&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Doc(s):&lt;/strong> Input text&lt;/li>
+&lt;li>&lt;strong>Schema:&lt;/strong> The schema of the graph, which can be provided as a JSON-formatted schema or as the graph name (if it exists in the database).&lt;/li>
+&lt;li>&lt;strong>Graph&lt;/strong> &lt;strong>Extract Prompt Header:&lt;/strong> The header of the prompt&lt;/li>
+&lt;li>&lt;strong>Output&lt;/strong>: Display results&lt;/li>
+&lt;/ul>
+&lt;h3 id="buttons">Buttons:&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Get RAG Info&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Get Vector Index Info:&lt;/strong> Retrieve vector index information&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Get&lt;/strong> &lt;strong>Graph&lt;/strong> &lt;strong>Index Info:&lt;/strong> Retrieve graph index information&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Clear RAG Data&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Clear Chunks Vector Index:&lt;/strong> Clear chunk vector&lt;/li>
+&lt;li>&lt;strong>Clear Graph Vid Vector Index&lt;/strong>: Clear graph vid vector&lt;/li>
+&lt;li>&lt;strong>Clear Graph Data&lt;/strong>: Clear Graph Data&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Import into&lt;/strong> &lt;strong>Vector&lt;/strong>: Convert the text in Doc(s) into vectors (requires chunking the text first and then converting the chunks into vectors)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Extract&lt;/strong> &lt;strong>Graph&lt;/strong> &lt;strong>Data (1):&lt;/strong> Extract graph data from Doc(s) based on the Schema, using the Graph Extract Prompt Header and chunked content as the prompt&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Load into GraphDB (2):&lt;/strong> Store the extracted graph data into the database (automatically calls Update Vid Embedding to store vectors in the vector database)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Update Vid Embedding:&lt;/strong> Convert graph vid into vectors&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="execution-flow">Execution Flow:&lt;/h3>
+&lt;ol>
+&lt;li>Input text into the &lt;strong>Doc(s)&lt;/strong> field.&lt;/li>
+&lt;li>Click the &lt;strong>Import into&lt;/strong> &lt;strong>Vector&lt;/strong> button to split and vectorize the text, storing it in the vector database.&lt;/li>
+&lt;li>Input the graph &lt;strong>Schema&lt;/strong> into the Schema field.&lt;/li>
+&lt;li>Click the &lt;strong>Extract&lt;/strong> &lt;strong>Graph&lt;/strong> &lt;strong>Data (1)&lt;/strong> button to extract the text into a graph.&lt;/li>
+&lt;li>Click the &lt;strong>Load into GraphDB (2)&lt;/strong> button to store the extracted graph into the graph database (this automatically calls &lt;strong>Update Vid Embedding&lt;/strong> to store the vectors in the vector database).&lt;/li>
+&lt;li>Click the &lt;strong>Update&lt;/strong> &lt;strong>Vid&lt;/strong> &lt;strong>Embedding&lt;/strong> button to vectorize the graph vertices and store them in the vector database.&lt;/li>
+&lt;/ol>
+&lt;h1 id="3-processing-flow-graphrag--user-functions">3. (Processing Flow) (Graph)RAG &amp;amp; User Functions&lt;/h1>
+&lt;p>The &lt;strong>Import into&lt;/strong> &lt;strong>Vector&lt;/strong> button in the previous module converts text (chunks) into vectors, and the &lt;strong>Update Vid Embedding&lt;/strong> button converts graph vid into vectors. These vectors are stored separately to supplement the context for queries (answer generation) in this module. In other words, the previous module prepares the data for RAG (vectorization), while this module executes RAG.&lt;/p>
+&lt;p>This module consists of two parts:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>HugeGraph RAG&lt;/strong> &lt;strong>Query&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>(Batch) Back-testing&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>The first part handles single queries, while the second part handles multiple queries at once. Below is an explanation of the first part.&lt;/p>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/33698062-e46b-4757-8b5e-93e8f10eae65" alt="image">&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>graph TD;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> A[Question] --&amp;gt; B[Vectorize the question and search \nfor the most similar chunk in the Vector Database &amp;amp;#40chunk&amp;amp;#41]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> A --&amp;gt; F[Extract keywords using LLM]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> F --&amp;gt; G[Match vertices precisely in Graph Database \nusing keywords; perform fuzzy matching in \nVector Database &amp;amp;#40graph vid&amp;amp;#41]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> G --&amp;gt; H[Generate Gremlin query using matched vertices and query with LLM]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> H --&amp;gt; I[Execute Gremlin query; if successful, finish; if failed, fallback to BFS]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> B --&amp;gt; J[Sort results]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> I --&amp;gt; J
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> J --&amp;gt; K[Generate answer]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="input-fields">Input Fields:&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Question:&lt;/strong> Input the query&lt;/li>
+&lt;li>&lt;strong>Query&lt;/strong> &lt;strong>Prompt:&lt;/strong> The prompt template used to ask the final question to the LLM&lt;/li>
+&lt;li>&lt;strong>Keywords Extraction Prompt:&lt;/strong> The prompt template for extracting keywords from the question&lt;/li>
+&lt;li>&lt;strong>Template Num:&lt;/strong> &amp;lt; 0 means disable text2gql; = 0 means no template(zero-shot); &amp;gt; 0 means using the specified number of templates&lt;/li>
+&lt;/ul>
+&lt;h3 id="query-scope-selection">Query Scope Selection:&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Basic&lt;/strong> &lt;strong>LLM&lt;/strong> &lt;strong>Answer:&lt;/strong> Does not use RAG functionality&lt;/li>
+&lt;li>&lt;strong>Vector-only Answer:&lt;/strong> Uses only vector-based retrieval (queries chunk vectors in the vector database)&lt;/li>
+&lt;li>&lt;strong>Graph-only Answer:&lt;/strong> Uses only graph-based retrieval (queries graph vid vectors in the vector database and the graph database)&lt;/li>
+&lt;li>&lt;strong>Graph-Vector Answer:&lt;/strong> Uses both graph-based and vector-based retrieval&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/26641e09-249f-4b3a-8013-16dc9383d333" alt="image">&lt;/p>
+&lt;h3 id="execution-flow-1">Execution Flow:&lt;/h3>
+&lt;h4 id="graph-only-answer">&lt;strong>Graph-only Answer:&lt;/strong>&lt;/h4>
+&lt;ul>
+&lt;li>Extract keywords from the &lt;strong>question&lt;/strong> using the &lt;strong>Keywords Extraction Prompt&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/b49e269f-eaec-40b1-8d8f-9e409821d75d" alt="image">&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Use the extracted keywords to:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>First, perform an exact match in the graph database.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If no match is found, perform a fuzzy match in the vector database (graph vid vector) to retrieve relevant vertices.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>text2gql:&lt;/strong> Call the text2gql-related interface, using the matched vertices as entities to convert the &lt;strong>question&lt;/strong> into a Gremlin query and execute it in the graph database.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>BFS:&lt;/strong> If text2gql fails (LLM-generated queries might be invalid), fall back to executing a graph query using a predefined &lt;strong>Gremlin query template&lt;/strong> (essentially a BFS traversal).&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="vector-only-answer">&lt;strong>Vector-only Answer:&lt;/strong>&lt;/h4>
+&lt;ul>
+&lt;li>
+&lt;p>Convert the &lt;strong>query&lt;/strong> into a vector.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Search for the most similar content in the &lt;strong>chunk vector&lt;/strong> dataset in the vector database.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="sorting-and-answer-generation">&lt;strong>Sorting and Answer Generation:&lt;/strong>&lt;/h4>
+&lt;ul>
+&lt;li>
+&lt;p>After executing the retrieval, sort the search (retrieval) results to construct the final &lt;strong>prompt&lt;/strong>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Generate answers based on different prompt configurations and display them in different output fields:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Basic&lt;/strong> &lt;strong>LLM&lt;/strong> &lt;strong>Answer&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Vector-only Answer&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Graph-only Answer&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Graph-Vector Answer&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/7d4496a3-d44c-4491-9463-8e93595dfa45" alt="image">&lt;/p>
+&lt;h1 id="4-processing-flow-text2gremlin">4. (Processing Flow) Text2Gremlin&lt;/h1>
+&lt;p>Converts natural language queries into Gremlin queries.&lt;/p>
+&lt;p>This module consists of two parts:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Build&lt;/strong> &lt;strong>Vector&lt;/strong> &lt;strong>Template Index (Optional):&lt;/strong> Vectorizes query/gremlin pairs from sample files and stores them in the vector database for reference when generating Gremlin queries.&lt;/li>
+&lt;li>&lt;strong>Natural Language to Gremlin:&lt;/strong> Converts natural language queries into Gremlin queries.&lt;/li>
+&lt;/ul>
+&lt;p>The first part is straightforward, so the focus is on the second part.&lt;/p>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/fc678369-261d-49ea-a289-1ca6ade5ca55" alt="image">&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>graph TD;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> A[Gremlin Pairs File] --&amp;gt; C[Vectorize query]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> C --&amp;gt; D[Store in Vector Database]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> F[Natural Language Query] --&amp;gt; G[Search for the most similar query \nin the Vector Database \n&amp;amp;#40If no Gremlin pairs exist in the Vector Database, \ndefault files will be automatically vectorized&amp;amp;#41 \nand retrieve the corresponding Gremlin]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> G --&amp;gt; H[Add the matched pair to the prompt \nand use LLM to generate the Gremlin \ncorresponding to the Natural Language Query]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="input-fields-for-the-second-part">Input Fields for the Second Part:&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Natural Language&lt;/strong> &lt;strong>Query&lt;/strong>: Input the natural language text to be converted into Gremlin.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/d2a72f45-488c-4099-968b-a11816655ba0" alt="image">&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Schema:&lt;/strong> Input the graph schema.&lt;/li>
+&lt;/ul>
+&lt;h3 id="execution-flow-2">Execution Flow:&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>Input the &lt;strong>query&lt;/strong> (natural language) into the &lt;strong>Natural Language Query&lt;/strong> field.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Input the &lt;strong>graph&lt;/strong> &lt;strong>schema&lt;/strong> into the &lt;strong>Schema&lt;/strong> field.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Click the &lt;strong>Text2Gremlin&lt;/strong> button, and the following execution logic applies:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Convert the &lt;strong>query&lt;/strong> into a vector.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Construct the &lt;strong>prompt&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>Retrieve the &lt;strong>graph schema&lt;/strong>.&lt;/li>
+&lt;li>Query the vector database for example vectors, retrieving query-gremlin pairs similar to the input query (if the vector database lacks examples, it automatically initializes with examples from the &lt;strong>resources&lt;/strong> folder).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://github.com/user-attachments/assets/fd150f87-27f8-48e5-8a55-319ec039b7e0" alt="image">&lt;/p>
+&lt;pre>&lt;code> - Generate the Gremlin query using the constructed prompt.
+&lt;/code>&lt;/pre>
+&lt;h1 id="5-graph-tools">5. Graph Tools&lt;/h1>
+&lt;p>Input Gremlin queries to execute corresponding operations.&lt;/p></description></item></channel></rss>

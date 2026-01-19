@@ -1,0 +1,163 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HugeGraph – Quick Start</title><link>/cn/docs/quickstart/</link><description>Recent content in Quick Start on HugeGraph</description><generator>Hugo -- gohugo.io</generator><atom:link href="/cn/docs/quickstart/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: HugeGraph (OLTP)</title><link>/cn/docs/quickstart/hugegraph/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cn/docs/quickstart/hugegraph/</guid><description>
+&lt;h2 id="-最佳实践优先使用-deepwiki-智能文档">🚀 最佳实践：优先使用 DeepWiki 智能文档&lt;/h2>
+&lt;blockquote>
+&lt;p>为解决静态文档可能过时的问题，我们提供了 &lt;strong>实时更新、内容更全面&lt;/strong> 的 DeepWiki。它相当于一个拥有项目最新知识的专家，非常适合&lt;strong>所有开发者&lt;/strong>在开始项目前阅读和咨询。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>👉 强烈推荐访问并对话：&lt;/strong>&lt;a href="https://deepwiki.com/apache/incubator-hugegraph">&lt;strong>incubator-hugegraph&lt;/strong>&lt;/a>&lt;/p></description></item><item><title>Docs: HugeGraph ToolChain</title><link>/cn/docs/quickstart/toolchain/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cn/docs/quickstart/toolchain/</guid><description>
+&lt;blockquote>
+&lt;p>&lt;strong>测试指南&lt;/strong>：如需在本地运行工具链测试，请参考 &lt;a href="/cn/docs/guides/toolchain-local-test">HugeGraph 工具链本地测试指南&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="-最佳实践优先使用-deepwiki-智能文档">🚀 最佳实践：优先使用 DeepWiki 智能文档&lt;/h2>
+&lt;blockquote>
+&lt;p>为解决静态文档可能过时的问题，我们提供了 &lt;strong>实时更新、内容更全面&lt;/strong> 的 DeepWiki。它相当于一个拥有项目最新知识的专家，非常适合&lt;strong>所有开发者&lt;/strong>在开始项目前阅读和咨询。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>👉 强烈推荐访问并对话：&lt;/strong>&lt;a href="https://deepwiki.com/apache/incubator-hugegraph-toolchain">&lt;strong>incubator-hugegraph-toolchain&lt;/strong>&lt;/a>&lt;/p></description></item><item><title>Docs: HugeGraph-AI</title><link>/cn/docs/quickstart/hugegraph-ai/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cn/docs/quickstart/hugegraph-ai/</guid><description>
+&lt;p>&lt;a href="https://www.apache.org/licenses/LICENSE-2.0.html">&lt;img src="https://img.shields.io/badge/license-Apache%202-0E78BA.svg" alt="License">&lt;/a>
+&lt;a href="https://deepwiki.com/apache/incubator-hugegraph-ai">&lt;img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki">&lt;/a>&lt;/p>
+&lt;h2 id="-最佳实践优先使用-deepwiki-智能文档">🚀 最佳实践：优先使用 DeepWiki 智能文档&lt;/h2>
+&lt;blockquote>
+&lt;p>为解决静态文档可能过时的问题，我们提供了 &lt;strong>实时更新、内容更全面&lt;/strong> 的 DeepWiki。它相当于一个拥有项目最新知识的专家，非常适合&lt;strong>所有开发者&lt;/strong>在开始项目前阅读和咨询。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>👉 强烈推荐访问并对话：&lt;/strong>&lt;a href="https://deepwiki.com/apache/incubator-hugegraph-ai">&lt;strong>incubator-hugegraph-ai&lt;/strong>&lt;/a>&lt;/p>
+&lt;p>&lt;code>hugegraph-ai&lt;/code> 整合了 &lt;a href="https://github.com/apache/hugegraph">HugeGraph&lt;/a> 与人工智能功能，为开发者构建 AI 驱动的图应用提供全面支持。&lt;/p>
+&lt;h2 id="-核心功能">✨ 核心功能&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>GraphRAG&lt;/strong>：利用图增强检索构建智能问答系统&lt;/li>
+&lt;li>&lt;strong>知识图谱构建&lt;/strong>：使用大语言模型从文本自动构建图谱&lt;/li>
+&lt;li>&lt;strong>图机器学习&lt;/strong>：集成 20 多种图学习算法（GCN、GAT、GraphSAGE 等）&lt;/li>
+&lt;li>&lt;strong>Python 客户端&lt;/strong>：易于使用的 HugeGraph Python 操作接口&lt;/li>
+&lt;li>&lt;strong>AI 智能体&lt;/strong>：提供智能图分析与推理能力&lt;/li>
+&lt;/ul>
+&lt;h2 id="-快速开始">🚀 快速开始&lt;/h2>
+&lt;blockquote>
+&lt;p>[!NOTE]
+如需完整的部署指南和详细示例，请参阅 &lt;a href="https://github.com/apache/incubator-hugegraph-ai/blob/main/hugegraph-llm/README.md">hugegraph-llm/README.md&lt;/a>。&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="环境要求">环境要求&lt;/h3>
+&lt;ul>
+&lt;li>Python 3.9+（建议 hugegraph-llm 使用 3.10+）&lt;/li>
+&lt;li>&lt;a href="https://docs.astral.sh/uv/">uv&lt;/a>（推荐的包管理器）&lt;/li>
+&lt;li>HugeGraph Server 1.3+（建议 1.5+）&lt;/li>
+&lt;li>Docker（可选，用于容器化部署）&lt;/li>
+&lt;/ul>
+&lt;h3 id="方案一docker-部署推荐">方案一：Docker 部署（推荐）&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 克隆仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/apache/incubator-hugegraph-ai.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> incubator-hugegraph-ai
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 设置环境并启动服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp docker/env.template docker/.env
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 编辑 docker/.env 设置你的 PROJECT_PATH&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker-compose -f docker-compose-network.yml up -d
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 访问服务：&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># - HugeGraph Server: http://localhost:8080&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># - RAG 服务: http://localhost:8001&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="方案二源码安装">方案二：源码安装&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 1. 启动 HugeGraph Server&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -itd --name&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>server -p 8080:8080 hugegraph/hugegraph
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 2. 克隆并设置项目&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/apache/incubator-hugegraph-ai.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87">cd&lt;/span> incubator-hugegraph-ai/hugegraph-llm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 3. 安装依赖&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uv venv &lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#204a87">source&lt;/span> .venv/bin/activate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uv pip install -e .
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 4. 启动演示&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python -m hugegraph_llm.demo.rag_demo.app
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 访问 http://127.0.0.1:8001&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="基本用法示例">基本用法示例&lt;/h3>
+&lt;h4 id="graphrag---问答">GraphRAG - 问答&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">hugegraph_llm.operators.graph_rag_task&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">RAGPipeline&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 初始化 RAG 工作流&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">graph_rag&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">RAGPipeline&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 对你的图进行提问&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">result&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">graph_rag&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">extract_keywords&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">text&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;给我讲讲 Al Pacino 的故事。&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">keywords_to_vid&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">query_graphdb&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">max_deep&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">max_graph_items&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">30&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">synthesize_answer&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">run&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="知识图谱构建">知识图谱构建&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">hugegraph_llm.models.llms.init_llm&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">LLMs&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">hugegraph_llm.operators.kg_construction_task&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">KgBuilder&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 从文本构建知识图谱&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">TEXT&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;你的文本内容...&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000">builder&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">KgBuilder&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">LLMs&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">get_chat_llm&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">builder&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">import_schema&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">from_hugegraph&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;hugegraph&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">chunk_split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">TEXT&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">extract_info&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">extract_type&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;property_graph&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">commit_to_hugegraph&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">run&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="图机器学习">图机器学习&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">pyhugegraph.client&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">PyHugeClient&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 连接 HugeGraph 并运行机器学习算法&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#8f5902;font-style:italic"># 详细示例请参阅 hugegraph-ml 文档&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-模块">📦 模块&lt;/h2>
+&lt;h3 id="hugegraph-llmhttpsgithubcomapacheincubator-hugegraph-aitreemainhugegraph-llm-ask-deepwikihttpsdeepwikicombadgesvghttpsdeepwikicomapacheincubator-hugegraph-ai">&lt;a href="https://github.com/apache/incubator-hugegraph-ai/tree/main/hugegraph-llm">hugegraph-llm&lt;/a> &lt;a href="https://deepwiki.com/apache/incubator-hugegraph-ai">&lt;img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki">&lt;/a>&lt;/h3>
+&lt;p>用于图应用的大语言模型集成：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>GraphRAG&lt;/strong>：基于图数据的检索增强生成&lt;/li>
+&lt;li>&lt;strong>知识图谱构建&lt;/strong>：从文本自动构建知识图谱&lt;/li>
+&lt;li>&lt;strong>自然语言接口&lt;/strong>：使用自然语言查询图&lt;/li>
+&lt;li>&lt;strong>AI 智能体&lt;/strong>：智能图分析与推理&lt;/li>
+&lt;/ul>
+&lt;h3 id="hugegraph-mlhttpsgithubcomapacheincubator-hugegraph-aitreemainhugegraph-ml">&lt;a href="https://github.com/apache/incubator-hugegraph-ai/tree/main/hugegraph-ml">hugegraph-ml&lt;/a>&lt;/h3>
+&lt;p>包含 20+ 算法的图机器学习：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>节点分类&lt;/strong>：GCN、GAT、GraphSAGE、APPNP 等&lt;/li>
+&lt;li>&lt;strong>图分类&lt;/strong>：DiffPool、P-GNN 等&lt;/li>
+&lt;li>&lt;strong>图嵌入&lt;/strong>：DeepWalk、Node2Vec、GRACE 等&lt;/li>
+&lt;li>&lt;strong>链接预测&lt;/strong>：SEAL、GATNE 等&lt;/li>
+&lt;/ul>
+&lt;h3 id="hugegraph-python-clienthttpsgithubcomapacheincubator-hugegraph-aitreemainhugegraph-python-client">&lt;a href="https://github.com/apache/incubator-hugegraph-ai/tree/main/hugegraph-python-client">hugegraph-python-client&lt;/a>&lt;/h3>
+&lt;p>用于 HugeGraph 操作的 Python 客户端：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Schema 管理&lt;/strong>：定义顶点/边标签和属性&lt;/li>
+&lt;li>&lt;strong>CRUD 操作&lt;/strong>：创建、读取、更新、删除图数据&lt;/li>
+&lt;li>&lt;strong>Gremlin 查询&lt;/strong>：执行图遍历查询&lt;/li>
+&lt;li>&lt;strong>REST API&lt;/strong>：完整的 HugeGraph REST API 覆盖&lt;/li>
+&lt;/ul>
+&lt;h2 id="-了解更多">📚 了解更多&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://hugegraph.apache.org/docs/quickstart/hugegraph-ai/">项目主页&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/apache/incubator-hugegraph-ai/blob/main/hugegraph-llm/quick_start.md">LLM 快速入门指南&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://deepwiki.com/apache/incubator-hugegraph-ai">DeepWiki AI 文档&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="-相关项目">🔗 相关项目&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/apache/hugegraph">hugegraph&lt;/a> - 核心图数据库&lt;/li>
+&lt;li>&lt;a href="https://github.com/apache/hugegraph-toolchain">hugegraph-toolchain&lt;/a> - 开发工具（加载器、仪表盘等）&lt;/li>
+&lt;li>&lt;a href="https://github.com/apache/hugegraph-computer">hugegraph-computer&lt;/a> - 图计算系统&lt;/li>
+&lt;/ul>
+&lt;h2 id="-贡献">🤝 贡献&lt;/h2>
+&lt;p>我们欢迎贡献！详情请参阅我们的&lt;a href="https://hugegraph.apache.org/docs/contribution-guidelines/">贡献指南&lt;/a>。&lt;/p>
+&lt;p>&lt;strong>开发设置：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>使用 &lt;a href="https://desktop.github.com/">GitHub Desktop&lt;/a> 更轻松地管理 PR&lt;/li>
+&lt;li>提交 PR 前运行 &lt;code>./style/code_format_and_analysis.sh&lt;/code>&lt;/li>
+&lt;li>报告错误前检查现有问题&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://github.com/apache/incubator-hugegraph-ai/graphs/contributors">&lt;img src="https://contrib.rocks/image?repo=apache/incubator-hugegraph-ai" alt="contributors graph">&lt;/a>&lt;/p>
+&lt;h2 id="-许可证">📄 许可证&lt;/h2>
+&lt;p>hugegraph-ai 采用 &lt;a href="https://github.com/apache/incubator-hugegraph-ai/blob/main/LICENSE">Apache 2.0 许可证&lt;/a>。&lt;/p>
+&lt;h2 id="-联系我们">📞 联系我们&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>GitHub Issues&lt;/strong>：&lt;a href="https://github.com/apache/incubator-hugegraph-ai/issues">报告错误或请求功能&lt;/a>（响应最快）&lt;/li>
+&lt;li>&lt;strong>电子邮件&lt;/strong>：&lt;a href="mailto:dev@hugegraph.apache.org">dev@hugegraph.apache.org&lt;/a>（&lt;a href="https://hugegraph.apache.org/docs/contribution-guidelines/subscribe/">需要订阅&lt;/a>）&lt;/li>
+&lt;li>&lt;strong>微信&lt;/strong>：关注 &amp;ldquo;Apache HugeGraph&amp;rdquo; 微信公众号&lt;/li>
+&lt;/ul>
+&lt;img src="https://raw.githubusercontent.com/apache/hugegraph-doc/master/assets/images/wechat.png" alt="Apache HugeGraph WeChat QR Code" width="200"/></description></item><item><title>Docs: HugeGraph Computing (OLAP)</title><link>/cn/docs/quickstart/computing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cn/docs/quickstart/computing/</guid><description>
+&lt;h2 id="-最佳实践优先使用-deepwiki-智能文档">🚀 最佳实践：优先使用 DeepWiki 智能文档&lt;/h2>
+&lt;blockquote>
+&lt;p>为解决静态文档可能过时的问题，我们提供了 &lt;strong>实时更新、内容更全面&lt;/strong> 的 DeepWiki。它相当于一个拥有项目最新知识的专家，非常适合&lt;strong>所有开发者&lt;/strong>在开始项目前阅读和咨询。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>👉 强烈推荐访问并对话：&lt;/strong>&lt;a href="https://deepwiki.com/apache/incubator-hugegraph-computer">&lt;strong>incubator-hugegraph-computer&lt;/strong>&lt;/a>&lt;/p></description></item><item><title>Docs: HugeGraph Client</title><link>/cn/docs/quickstart/client/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cn/docs/quickstart/client/</guid><description/></item></channel></rss>
